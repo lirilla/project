@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import catReducer from './reducers';
 import CatForm from './components/CatForm';
-import CatList from './components/CatList';
+import CatContainer from './containers/CatContainer';
 import style from '../styles/style.less'
 import { createStore } from 'redux';
 
@@ -16,7 +16,7 @@ if (indexRoot) {
 		<Provider store = {store}>
 			<div className = {style.main}>
 				<CatForm />
-				<CatList />
+				<CatContainer />
             </div>
 		</Provider>,
 		indexRoot

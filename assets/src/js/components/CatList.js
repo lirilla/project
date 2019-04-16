@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class CatList extends Component {
-    render() {
-        return (
-            <div>
-                <h1>All Cats</h1>
+const CatList = (props) => {
+    return (
+        <div>
+            <h1>All Cats</h1>
 
-                {this.props.cats.map((cat) => (
+            {
+                props.cats.length 
+                ? props.cats.map((cat) => (
                     <div key = {cat.id}>
                         { cat.name } 
+                        <button onClick = { props.removeCat.bind(this, cat) }>Delete</button>
                     </div>
-                ))}
-            </div>
-        );
-    }
+                )) 
+                : 'No cats'
+            }
+        </div>
+    );
 }
 
-const mapStateToProps = (state) => {
-    return {
-        cats: state
-    }
-}
-export default connect(mapStateToProps)(CatList);
+export default CatList;
